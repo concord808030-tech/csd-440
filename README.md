@@ -1,1 +1,1 @@
-# csd-440
+This module covers installing and configuring the Apache (XAMPP) web server to work with PHP. After that, we'll test everything to make sure Apache (XAMPP) is running correctly, and we'll cover some basic troubleshooting to fix errors along the way.

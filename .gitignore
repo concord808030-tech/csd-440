@@ -1,5 +1,36 @@
+# OS files
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# Logs
 *.log
-/vendor/
+logs/
+
+# Dependencies
+vendor/
+node_modules/
+
+# Environment / credentials
 .env
+.env.*
+config.php
+db_connect.php
+credentials.php
+
+# Editors / IDEs
+.idea/
+.vscode/
+*.swp
+*~
+
+# XAMPP / local server artifacts
+*.sql.bak
+*.sqlite
+error_log
+
+# Archives and misc
+*.zip
+*.rar
+*.tmp
+*.cache

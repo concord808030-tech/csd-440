@@ -24,13 +24,15 @@ class MiguelMyInteger {
         $this->value = $number;
     }
 
-    // True if the given number is even
-    public function isEven($number) {
+    // True if the given number (or the stored number if none is given) is even
+    public function isEven($number = null) {
+        $number = $number ?? $this->value;
         return $number % 2 == 0;
     }
 
-    // True if the given number is odd
-    public function isOdd($number) {
+    // True if the given number (or the stored number if none is given) is odd
+    public function isOdd($number = null) {
+        $number = $number ?? $this->value;
         return $number % 2 != 0;
     }
 

@@ -2,7 +2,7 @@
 /* 
    Program Name: MiguelPalindrome.php
    Author: Miguel
-    Date: 2024-06-10
+   Date: 2026-08-30
 */
 
 // Returns true if the string is a palindrome (ignores case, spaces, punctuation)

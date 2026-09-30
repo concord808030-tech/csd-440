@@ -10,6 +10,8 @@
  *              (field names and data types), and the total row count. If the
  *              table is missing, empty, or the connection fails, a message
  *              explains what to do.
+ * AI Use:      Claude Code (Anthropic) was used to help check for bugs
+ *              and to write and improve comments.
  */
 
 // ---------------------------------------------------------------------------

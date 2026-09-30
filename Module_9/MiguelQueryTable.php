@@ -17,6 +17,9 @@
    Inputs:       None (the filter values are set in the code).
    Outputs:      An HTML page containing the three result sets, or an error
                  message if a query fails.
+
+   AI Use:       Claude Code (Anthropic) was used to help check for bugs
+                 and to write and improve comments.
    ============================================================================ */
 
 // ---------------------------------------------------------------------------

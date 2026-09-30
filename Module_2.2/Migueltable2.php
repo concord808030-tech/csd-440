@@ -1,15 +1,19 @@
 <?php
-/* 
-   Author: Miguel
-   Course: CSD440
-   Date: August 23, 2026
-   Description: Displays a two-dimensional HTML table filled
-                with PHP-generated random numbers.
-    */
+/*
+   Program Name: Migueltable2.php
+   Author:       Miguel Fernandez
+   Course:       CSD440
+   Assignment:   Module 2.2
+   Date:         2026-08-23
+   Description:  Displays a two-dimensional HTML table filled with
+                 PHP-generated random numbers (1-100) using nested for loops.
+   AI Use:       Claude Code (Anthropic) was used to help check for bugs
+                 and to write and improve comments.
+*/
 
-// Table size settings
-$rows = 6;   
-$cols = 6;   
+// Table size settings (change these to resize the table)
+$rows = 6;   // number of table rows
+$cols = 6;   // number of cells in each row
 ?>
 <!DOCTYPE html>
 <html lang="en">

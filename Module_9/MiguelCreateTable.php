@@ -15,6 +15,9 @@
    Inputs:       None (no user input required).
    Outputs:      An HTML page confirming the table was created, or reporting
                  the MySQL error that prevented creation.
+
+   AI Use:       Claude Code (Anthropic) was used to help check for bugs
+                 and to write and improve comments.
    ============================================================================ */
 
 // ---------------------------------------------------------------------------

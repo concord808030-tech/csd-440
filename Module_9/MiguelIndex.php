@@ -11,6 +11,9 @@
 
    Inputs:       None.
    Outputs:      An HTML page with a list of links.
+
+   AI Use:       Claude Code (Anthropic) was used to help check for bugs
+                 and to write and improve comments.
    ============================================================================ */
 ?>
 <!DOCTYPE html>

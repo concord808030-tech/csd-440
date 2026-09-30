@@ -1,8 +1,15 @@
 <?php
-/* 
-   Program Name: MiguelPalindrome.php
-   Author: Miguel
-   Date: 2026-08-30
+/*
+   Program Name: Miguelpalindrome.php
+   Author:       Miguel Fernandez
+   Course:       CSD440
+   Assignment:   Module 4.2
+   Date:         2026-08-30
+   Description:  Tests six strings (three palindromes, three not) and shows
+                 each string, its reverse, and whether it is a palindrome.
+                 The check ignores case, spaces, and punctuation.
+   AI Use:       Claude Code (Anthropic) was used to help check for bugs
+                 and to write and improve comments.
 */
 
 // Returns true if the string is a palindrome (ignores case, spaces, punctuation)

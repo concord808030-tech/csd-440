@@ -18,6 +18,9 @@
    Warning:      Dropping the table permanently deletes both its structure and
                  all of its rows. Re-run MiguelCreateTable.php and
                  MiguelPopulateTable.php to rebuild it.
+
+   AI Use:       Claude Code (Anthropic) was used to help check for bugs
+                 and to write and improve comments.
    ============================================================================ */
 
 // ---------------------------------------------------------------------------

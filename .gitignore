@@ -2,35 +2,68 @@
 .DS_Store
 Thumbs.db
 desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
 
 # Logs
 *.log
 logs/
+error_log
 
 # Dependencies
 vendor/
 node_modules/
+composer.phar
 
 # Environment / credentials
 .env
 .env.*
+!.env.example
 config.php
 db_connect.php
 credentials.php
+secrets.php
+*.secret
+auth.json
+.htpasswd
 
-# Editors / IDEs
+# Keys and certificates
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+
+# Database dumps and local data
+*.sql.bak
+*.sql.gz
+*.dump
+*.sqlite
+*.sqlite3
+*.db
+
+# PHP runtime / tooling
+sess_*
+.phpunit.result.cache
+.php-cs-fixer.cache
+
+# Editors / IDEs / AI tools
 .idea/
 .vscode/
+.claude/
 *.swp
+*.swo
 *~
 
-# XAMPP / local server artifacts
-*.sql.bak
-*.sqlite
-error_log
+# Office temp files
+~$*
 
 # Archives and misc
 *.zip
 *.rar
+*.7z
 *.tmp
+*.bak
 *.cache

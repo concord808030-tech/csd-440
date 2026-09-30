@@ -52,11 +52,15 @@ if ($startDate == '') {
 // String from a list
 if ($dept == '') {
     $errors[] = "Department is required.";
+} elseif (!in_array($dept, array("Engineering", "Marketing", "Operations"), true)) {
+    $errors[] = "Department is not a valid choice.";
 }
 
 // Boolean
 if ($remote == '') {
     $errors[] = "Works Remotely is required.";
+} elseif (!in_array($remote, array("Yes", "No"), true)) {
+    $errors[] = "Works Remotely must be Yes or No.";
 }
 ?>
 <!DOCTYPE html>

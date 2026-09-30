@@ -7,7 +7,7 @@
                 addNumbers() function
 */
 
-require_once("MiguelSum.php");   
+require_once("miguelsum.php");   
 
 $rows = 7;
 $cols = 7;

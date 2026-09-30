@@ -66,7 +66,8 @@ showCustomers("Age 40 and Older", $older);
 // 4. Find by phone number
 $phones = array_column($customers, "phone");
 $found  = array_search("555-0107", $phones);
-showCustomers("Phone: 555-0107", array($customers[$found]));
+// array_search returns false when nothing matches, so show an empty table then
+showCustomers("Phone: 555-0107", $found === false ? array() : array($customers[$found]));
 
 // 5. Sort by age
 $byAge = $customers;

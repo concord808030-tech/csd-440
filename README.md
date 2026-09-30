@@ -11,7 +11,7 @@ In the banner, each pellet the elephant eats is one module, and each bug is a re
 
 1. Install [XAMPP](https://www.apachefriends.org/) and start **Apache**. Start **MySQL** too if you want to play stages 8 and 9.
 2. Clone this repo into `C:\xampp\htdocs\`.
-3. Open a stage in your browser, e.g. `http://localhost/csd-440/Module_10/miguel_json_form.html`.
+3. Open a stage in your browser, e.g. `http://localhost/csd-440/Modules/Module_10/miguel_json_form.html`.
 
 Stages 8 and 9 log in to the `baseball_01` database as `student1` / `pass`, the shared account given by the course.
 
@@ -21,27 +21,27 @@ Stages 8 and 9 log in to the `baseball_01` database as `student1` / `pass`, the 
 
 | Stage | Folder | Start here | What it does |
 |:-:|---|---|---|
-| 1.2 | [`Module_1.2`](Module_1.2) | PDF | Sets up this GitHub repo |
-| 1.3 | [`Module_1.3`](Module_1.3) | `FernandezFirstProgram.php` | First PHP page: prints today's date and loops through a list |
-| 2.2 | [`Module_2.2`](Module_2.2) | `Migueltable2.php` | Builds a table of random numbers with nested loops |
-| 3 | [`Module_3`](Module_3) | `migueltable3.php` | Fills a table with sums from a function in a separate file |
-| 4.2 | [`Module_4.2`](Module_4.2) | `Miguelpalindrome.php` | Tests six strings and says which are palindromes |
+| 1.2 | [`Module_1.2`](Modules/Module_1.2) | PDF | Sets up this GitHub repo |
+| 1.3 | [`Module_1.3`](Modules/Module_1.3) | `FernandezFirstProgram.php` | First PHP page: prints today's date and loops through a list |
+| 2.2 | [`Module_2.2`](Modules/Module_2.2) | `Migueltable2.php` | Builds a table of random numbers with nested loops |
+| 3 | [`Module_3`](Modules/Module_3) | `migueltable3.php` | Fills a table with sums from a function in a separate file |
+| 4.2 | [`Module_4.2`](Modules/Module_4.2) | `Miguelpalindrome.php` | Tests six strings and says which are palindromes |
 
 ### World 2: Arrays, classes and forms
 
 | Stage | Folder | Start here | What it does |
 |:-:|---|---|---|
-| 5 & 6 | [`Module_5_and_6`](Module_5_and_6) | `Miguelcustomers.php` | Searches and sorts a list of customers with array functions |
+| 5 & 6 | [`Module_5_and_6`](Modules/Module_5_and_6) | `Miguelcustomers.php` | Searches and sorts a list of customers with array functions |
 | | | `Miguelmyinteger.php` | A class that stores a number and checks if it's even, odd or prime |
-| 7.2 | [`Module_7.2`](Module_7.2) | `MiguelForm.html` | An employee form; PHP checks each field and lists any errors |
+| 7.2 | [`Module_7.2`](Modules/Module_7.2) | `MiguelForm.html` | An employee form; PHP checks each field and lists any errors |
 
 ### World 3: Databases and data
 
 | Stage | Folder | Start here | What it does |
 |:-:|---|---|---|
-| 8 | [`Module_8`](Module_8) | `MiguelCreateTable.php` | Creates, fills, queries and drops a table of video games |
-| 9 | [`Module_9`](Module_9) | `MiguelIndex.php` | Searches a pilot roster and adds new pilots through a form |
-| 10 | [`Module_10`](Module_10) | `miguel_json_form.html` | Checks a customer form and returns the data as JSON |
+| 8 | [`Module_8`](Modules/Module_8) | `MiguelCreateTable.php` | Creates, fills, queries and drops a table of video games |
+| 9 | [`Module_9`](Modules/Module_9) | `MiguelIndex.php` | Searches a pilot roster and adds new pilots through a form |
+| 10 | [`Module_10`](Modules/Module_10) | `miguel_json_form.html` | Checks a customer form and returns the data as JSON |
 
 Each folder also has screenshots of its test runs.
 

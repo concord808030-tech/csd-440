@@ -18,6 +18,9 @@
 
    Note:         The table is emptied first so the script can be run more than
                  once without producing duplicate call signs.
+
+   AI Use:       Claude Code (Anthropic) was used to help check for bugs
+                 and to write and improve comments.
    ============================================================================ */
 
 // ---------------------------------------------------------------------------
@@ -81,7 +84,7 @@ if (!$conn->query("TRUNCATE TABLE " . TBL_NAME)) {
 }
 
 // ---------------------------------------------------------------------------
-// Step 3: Sample data. Each inner array holds the eight values that are
+// Step 3: Sample data. Each inner array holds the nine values that are
 //         inserted; pilot_id is generated automatically by MySQL.
 //         Order: call_sign, given_name, faction, rank_title, ship_class,
 //                missions_flown, combat_rating, active_duty, enlisted_date

@@ -1,12 +1,18 @@
 <?php
 /*
- * MiguelCustomers.php
- * CSD440
- * Creates an array of 10 customers and uses array methods
- * to search and sort them by different fields.
+ * Program Name: Miguelcustomers.php
+ * Author:       Miguel Fernandez
+ * Course:       CSD440
+ * Assignment:   Modules 5 and 6
+ * Date:         2026-09-08
+ * Description:  Creates an array of 10 customers (each one an associative
+ *               array) and uses PHP array functions to search them by last
+ *               name, age, and phone number, and to sort them by age.
+ * AI Use:       Claude Code (Anthropic) was used to help check for bugs
+ *               and to write and improve comments.
  */
 
-// The customer list
+// The customer list: an indexed array of associative arrays
 $customers = array(
     array("first" => "Ana",    "last" => "Torres", "age" => 28, "phone" => "555-0101"),
     array("first" => "Brian",  "last" => "Cole",   "age" => 45, "phone" => "555-0102"),

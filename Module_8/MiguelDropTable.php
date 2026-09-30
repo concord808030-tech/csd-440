@@ -8,6 +8,8 @@
  *              (permanently deletes) the "miguel_video_games" table and all
  *              of its data. If the table does not exist, a message says so.
  *              If the connection or the DROP fails, an error is displayed.
+ * AI Use:      Claude Code (Anthropic) was used to help check for bugs
+ *              and to write and improve comments.
  */
 
 // ---------------------------------------------------------------------------

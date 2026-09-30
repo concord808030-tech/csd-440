@@ -11,6 +11,8 @@
  *              can be run more than once without creating duplicates. The
  *              page reports how many rows were inserted and skipped, or an
  *              error if the table is missing or the connection fails.
+ * AI Use:      Claude Code (Anthropic) was used to help check for bugs
+ *              and to write and improve comments.
  */
 
 // ---------------------------------------------------------------------------

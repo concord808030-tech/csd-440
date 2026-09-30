@@ -10,6 +10,8 @@
  *              page showing the JSON. If the request is invalid, any field
  *              fails validation, or encoding fails, an error display listing
  *              each problem is returned instead.
+ * AI Use:      Claude Code (Anthropic) was used to help check for bugs
+ *              and to write and improve comments.
  */
 
 /**

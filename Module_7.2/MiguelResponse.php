@@ -1,8 +1,21 @@
 <?php
-// MiguelResponse.php - CSD440
-// Checks the seven fields from MiguelForm.html and displays the results.
+/*
+   Program Name: MiguelResponse.php
+   Author:       Miguel Fernandez
+   Course:       CSD440
+   Assignment:   Module 7.2
+   Date:         2026-09-08
+   Description:  Receives the seven fields posted from MiguelForm.html,
+                 validates each one by data type (string, email, integer,
+                 float, date, list choice, yes/no), and shows either a list
+                 of errors or a table of the submitted values.
+   AI Use:       Claude Code (Anthropic) was used to help check for bugs
+                 and to write and improve comments.
+*/
 
-$name      = trim($_POST['name'] ?? '');
+// Read each field. "?? ''" avoids a warning if a field was not sent, and
+// trim() removes extra spaces so "   " counts as empty.
+$name     = trim($_POST['name'] ?? '');
 $email     = trim($_POST['email'] ?? '');
 $age       = trim($_POST['age'] ?? '');
 $rate      = trim($_POST['rate'] ?? '');

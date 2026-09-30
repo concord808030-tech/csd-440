@@ -14,6 +14,9 @@
    Inputs:       search - text typed by the user (sent with GET).
    Outputs:      The search form and a table of matching pilots, or a
                  message if nothing matched or an error occurred.
+
+   AI Use:       Claude Code (Anthropic) was used to help check for bugs
+                 and to write and improve comments.
    ============================================================================ */
 
 // ---------------------------------------------------------------------------

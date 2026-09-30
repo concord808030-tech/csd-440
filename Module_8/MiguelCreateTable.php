@@ -5,11 +5,12 @@
  * Date:        2026-09-29
  * Course:      Module 8 - Creating a MySQL Table with PHP (MySQLi)
  * Description: Connects to the baseball_01 database with MySQLi and creates
- *              the "miguel_video_games" table used in Module 9. The table
- *              stores information about video games and has eight fields
+ *              the "miguel_video_games" table. The table stores information about video games and has eight fields
  *              using several data types (INT, VARCHAR, DATE, DECIMAL,
  *              TINYINT and BOOLEAN). If the table already exists, or the
  *              connection fails, an error message is displayed instead.
+ * AI Use:      Claude Code (Anthropic) was used to help check for bugs
+ *              and to write and improve comments.
  */
 
 // ---------------------------------------------------------------------------

@@ -1,3 +1,17 @@
+<?php
+/*
+   Program Name: FernandezFirstProgram.php
+   Author:       Miguel Fernandez
+   Course:       CSD440
+   Assignment:   Module 1.3 Programming Assignment
+   Date:         2026-08-16
+   Description:  A first PHP page that mixes HTML with two PHP snippets:
+                 one prints today's date and time, the other loops through
+                 an array to build an HTML list.
+   AI Use:       Claude Code (Anthropic) was used to help check for bugs
+                 and to write and improve comments.
+*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

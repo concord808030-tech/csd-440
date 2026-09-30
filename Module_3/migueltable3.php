@@ -1,16 +1,24 @@
 <?php
 /*
-   Program Name: MiguelTable3.php
-   Author: Miguel
-   Description: HTML table where each cell holds the
-                sum of two random numbers, calculated by the
-                addNumbers() function
+   Program Name: migueltable3.php
+   Author:       Miguel Fernandez
+   Course:       CSD440
+   Assignment:   Module 3
+   Date:         2026-08-23
+   Description:  HTML table where each cell holds the sum of two random
+                 numbers (1-50), calculated by the addNumbers() function
+                 from the external file miguelsum.php.
+   AI Use:       Claude Code (Anthropic) was used to help check for bugs
+                 and to write and improve comments.
 */
 
-require_once("miguelsum.php");   
+// Load addNumbers(). The filename must match exactly (lowercase) because
+// Linux web servers treat "MiguelSum.php" and "miguelsum.php" as different.
+require_once("miguelsum.php");
 
-$rows = 7;
-$cols = 7;
+// Table size settings
+$rows = 7;   // number of table rows
+$cols = 7;   // number of cells in each row
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,8 +1,16 @@
 <?php
 /*
- * MiguelMyInteger.php
- * CSD440
- * Defines the MiguelMyInteger class and tests its methods.
+ * Program Name: Miguelmyinteger.php
+ * Author:       Miguel Fernandez
+ * Course:       CSD440
+ * Assignment:   Modules 5 and 6
+ * Date:         2026-09-08
+ * Description:  Defines the MiguelMyInteger class, which stores one integer
+ *               and provides a getter, a setter, and isEven(), isOdd(), and
+ *               isPrime() checks. Two objects are created to test every
+ *               method, including the setter.
+ * AI Use:       Claude Code (Anthropic) was used to help check for bugs
+ *               and to write and improve comments.
  */
 
 class MiguelMyInteger {

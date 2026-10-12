@@ -1,6 +1,6 @@
 <p align="center">
   <img src="assets/library-banner.svg" width="100%"
-       alt="A black-and-white library at night under the title CSD 440, Server-Side Scripting with PHP. Eleven volumes stand on a shelf, one per module from 1.2 to 11.2, each stamped with its module number and subject, beside a Gothic window with the moon behind it and a lit candle in front.">
+       alt="A black-and-white library by candlelight under the title CSD 440, Server-Side Scripting with PHP. Ten volumes stand on a shelf, one per module from 1.3 to 11.2, each stamped with its module number and subject. At the end of the shelf a skull rests on two books titled Ars Longa and Vita Brevis, beside a lit candle, with a single crimson rose laid in front of it.">
 </p>
 
 My coursework for **CSD 440: Server-Side Scripting**. Each folder holds one module's assignment, shelved in the order it was written. It begins with a single PHP page and works up to forms that check their input, store it in MySQL, return it as JSON and print it as a PDF.
@@ -21,7 +21,6 @@ Modules 8, 9 and 11.2 sign in to the `baseball_01` database as `student1` / `pas
 
 | Module | Folder | Open first | What it does |
 |:-:|---|---|---|
-| 1.2 | [`Module_1.2`](Modules/Module_1.2) | PDF | Sets up this GitHub repository |
 | 1.3 | [`Module_1.3`](Modules/Module_1.3) | `FernandezFirstProgram.php` | First PHP page: prints today's date and loops through a list |
 | 2.2 | [`Module_2.2`](Modules/Module_2.2) | `Migueltable2.php` | Builds a table of random numbers with nested loops |
 | 3 | [`Module_3`](Modules/Module_3) | `migueltable3.php` | Fills a table with sums from a function in a separate file |

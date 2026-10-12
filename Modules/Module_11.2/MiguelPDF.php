@@ -1,24 +1,52 @@
 <?php
 /*
- * Miguel
+ * File:        MiguelPDF.php
+ * Author:      Miguel
+ * Date:        2026-10-09
+ * Course:      Module 11.2 - Creating a PDF from MySQL Data with FPDF
+ * Description: Reads every row of the "miguel_video_games" table (built in
+ *              Module 8) and sends it to the browser as a landscape PDF. The
+ *              PDF has a coloured header and a footer with page numbers on
+ *              every page, a short introduction, a table of games with
+ *              striped rows, and a summary row with totals and averages.
+ *              Long tables continue onto new pages with the column headings
+ *              repeated. If the database or table is missing, an HTML error
+ *              page is shown instead.
+ * Inputs:      None (data comes from the database).
+ * Outputs:     MiguelVideoGames.pdf, shown inline in the browser.
+ * AI Use:      Claude Code (Anthropic) was used to help check for bugs
+ *              and to write and improve comments.
  */
 
+// ---------------------------------------------------------------------------
+// Settings and libraries
+// ---------------------------------------------------------------------------
 require_once "MiguelDbConfig.php";
 require_once __DIR__ . "/fpdf/fpdf.php";
 
+// Used for the "Generated on" date in the footer.
 date_default_timezone_set("America/Los_Angeles");
 
+// FPDF's built-in fonts only support Windows-1252, not UTF-8. Convert the
+// text so characters like accents print correctly; if conversion fails,
+// fall back to the original text.
 function pdfText($text)
 {
     $converted = iconv("UTF-8", "windows-1252//TRANSLIT", (string) $text);
     return $converted === false ? (string) $text : $converted;
 }
 
+// ---------------------------------------------------------------------------
+// MiguelPDF - extends FPDF with a custom page header/footer and helpers
+// for drawing the video game table.
+// ---------------------------------------------------------------------------
 class MiguelPDF extends FPDF
 {
-    public $tableName = "";
-    public $columns = [];
+    public $tableName = "";   // Shown in the page header
+    public $columns = [];     // Each column's label, width (mm) and alignment
 
+    // FPDF calls Header() automatically at the top of every new page.
+    // Draws a blue banner with the report title and the table name.
     function Header()
     {
         $this->SetFillColor(31, 78, 121);
@@ -33,6 +61,9 @@ class MiguelPDF extends FPDF
         $this->SetY(28);
     }
 
+    // FPDF calls Footer() automatically at the bottom of every page.
+    // Shows when the PDF was made and "Page X of Y" ({nb} is replaced
+    // with the total page count by AliasNbPages()).
     function Footer()
     {
         $this->SetY(-14);
@@ -46,6 +77,7 @@ class MiguelPDF extends FPDF
         $this->SetTextColor(0, 0, 0);
     }
 
+    // Prints a bold blue heading.
     function SectionTitle($title)
     {
         $this->SetFont("Helvetica", "B", 13);
@@ -54,6 +86,7 @@ class MiguelPDF extends FPDF
         $this->SetTextColor(0, 0, 0);
     }
 
+    // Prints body text that wraps across the page width.
     function Paragraph($text)
     {
         $this->SetFont("Helvetica", "", 10.5);
@@ -61,6 +94,7 @@ class MiguelPDF extends FPDF
         $this->Ln(2);
     }
 
+    // Prints the row of column headings (white text on blue).
     function TableHeader()
     {
         $this->SetFont("Helvetica", "B", 10);
@@ -74,6 +108,9 @@ class MiguelPDF extends FPDF
         $this->SetTextColor(0, 0, 0);
     }
 
+    // Prints one table cell. If the text is too wide for the cell, it is
+    // shortened a few characters at a time and ends with "..." so it never
+    // spills into the next column.
     function FitCell($width, $height, $text, $align, $fill)
     {
         $text = pdfText($text);
@@ -83,11 +120,13 @@ class MiguelPDF extends FPDF
         $this->Cell($width, $height, $text, 1, 0, $align, $fill);
     }
 
+    // Prints one row per game, shading every other row.
     function TableRows($rows)
     {
         $this->SetFont("Helvetica", "", 9.5);
-        $fill = false;
+        $fill = false;   // Switches each row to make the stripes
 
+        // An empty table gets a single "No records" row instead.
         if (empty($rows)) {
             $this->SetFillColor(253, 236, 234);
             $this->Cell(array_sum(array_column($this->columns, "width")), 8, "No records found in the table.", 1, 1, "C", true);
@@ -95,12 +134,15 @@ class MiguelPDF extends FPDF
         }
 
         foreach ($rows as $row) {
+            // Start a new page before the row would run into the footer,
+            // and repeat the column headings at the top of it.
             if ($this->GetY() + 6.5 > $this->GetPageHeight() - 24) {
                 $this->AddPage();
                 $this->TableHeader();
                 $this->SetFont("Helvetica", "", 9.5);
             }
 
+            // Format each value for display, in the same order as $columns.
             $this->SetFillColor(245, 248, 252);
             $values = [
                 $row["game_id"],
@@ -121,15 +163,19 @@ class MiguelPDF extends FPDF
         }
     }
 
+    // Prints a summary row: number of games, average price, average
+    // rating and how many games are multiplayer.
     function TableFooter($rows)
     {
         $count = count($rows);
+        // The "$count ?" checks avoid dividing by zero on an empty table.
         $avgPrice = $count ? array_sum(array_column($rows, "price")) / $count : 0;
         $avgRating = $count ? array_sum(array_column($rows, "rating")) / $count : 0;
         $multiplayer = count(array_filter(array_column($rows, "multiplayer")));
 
         $w = array_column($this->columns, "width");
 
+        // Keep the summary row off the footer, like the data rows.
         if ($this->GetY() + 8 > $this->GetPageHeight() - 24) {
             $this->AddPage();
             $this->TableHeader();
@@ -137,6 +183,7 @@ class MiguelPDF extends FPDF
 
         $this->SetFont("Helvetica", "B", 9.5);
         $this->SetFillColor(220, 230, 241);
+        // The count cell spans the first five columns.
         $this->Cell($w[0] + $w[1] + $w[2] + $w[3] + $w[4], 8, "Total games: $count", 1, 0, "L", true);
         $this->Cell($w[5], 8, "Avg $" . number_format($avgPrice, 2), 1, 0, "R", true);
         $this->Cell($w[6], 8, "Avg " . number_format($avgRating, 1), 1, 0, "R", true);
@@ -144,15 +191,21 @@ class MiguelPDF extends FPDF
     }
 }
 
+// ---------------------------------------------------------------------------
+// Read the games from the database
+// ---------------------------------------------------------------------------
+
+// Throw mysqli_sql_exception on errors so they can be caught below.
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-$rows = [];
-$error = "";
+$rows = [];    // Every game, as an associative array
+$error = "";   // Set if the data could not be read
 
 try {
     $conn = new mysqli($host, $user, $password, $database);
     $conn->set_charset("utf8mb4");
 
+    // No user input goes into this query, so a prepared statement is not needed.
     $result = $conn->query(
         "SELECT game_id, title, genre, platform, release_date, price, rating, multiplayer
          FROM $table
@@ -162,6 +215,7 @@ try {
     $result->free();
     $conn->close();
 } catch (mysqli_sql_exception $e) {
+    // 1146 = table does not exist, 1049 = database does not exist.
     if ($e->getCode() === 1146) {
         $error = "Table \"$table\" does not exist. Run the Module 8 scripts MiguelCreateTable.php and MiguelPopulateTable.php first.";
     } elseif ($e->getCode() === 1049) {
@@ -171,6 +225,9 @@ try {
     }
 }
 
+// ---------------------------------------------------------------------------
+// If something went wrong, show an HTML error page instead of a PDF
+// ---------------------------------------------------------------------------
 if ($error !== "") {
     http_response_code(500);
     ?>
@@ -198,8 +255,14 @@ if ($error !== "") {
     exit;
 }
 
+// ---------------------------------------------------------------------------
+// Build the PDF
+// ---------------------------------------------------------------------------
+
+// Landscape, measured in millimetres, US Letter paper.
 $pdf = new MiguelPDF("L", "mm", "Letter");
 $pdf->tableName = $table;
+// Widths add up to 259.4 mm, the page width minus the 10 mm margins.
 $pdf->columns = [
     ["label" => "ID",           "width" => 14,   "align" => "C"],
     ["label" => "Title",        "width" => 80,   "align" => "L"],
@@ -210,10 +273,11 @@ $pdf->columns = [
     ["label" => "Rating",       "width" => 18,   "align" => "R"],
     ["label" => "Multiplayer",  "width" => 25.4, "align" => "C"],
 ];
+// Document properties shown in the PDF viewer.
 $pdf->SetTitle("Miguel's Video Game Collection");
 $pdf->SetAuthor("Miguel");
-$pdf->AliasNbPages();
-$pdf->SetAutoPageBreak(true, 24);
+$pdf->AliasNbPages();               // Enables the {nb} total in Footer()
+$pdf->SetAutoPageBreak(true, 24);   // Leave room for the footer
 $pdf->AddPage();
 
 $pdf->SectionTitle("About Video Games");
@@ -228,4 +292,5 @@ $pdf->TableHeader();
 $pdf->TableRows($rows);
 $pdf->TableFooter($rows);
 
+// "I" sends the PDF inline so the browser opens it instead of downloading it.
 $pdf->Output("I", "MiguelVideoGames.pdf");
